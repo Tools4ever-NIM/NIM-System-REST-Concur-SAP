@@ -1,0 +1,118 @@
+{
+  "schema": {
+    "crud_objects": {
+      "costcenter1": {
+        "operations": {
+          "costcenter1List": {
+            "method": "get",
+            "call": {
+              "path": "/profile/identity/v4.1/Users"
+            },
+            "processing_options": {
+              "output_field": null
+            }
+          }
+        },
+        "key": "code",
+        "resources": {
+          "code": "string*",
+          "description": "string*"
+        }
+      }
+    }
+  },
+  "rest": {
+    "config": {
+      "baseUrl": "https://{tenant_id}",
+      "get": {
+        "pagination": {
+                    "mode": "url",
+                    "replace_in_url": true,
+                    "last_page": {
+                       "type": "token",
+                       "path": "nextCursor"
+                    },
+                    "query_params": [{
+                        "name": "cursor",
+                        "value": {
+                            "type": "response_field",
+                            "value": "nextCursor"
+                        }
+                    }]
+                }
+      },
+      "authentication": "client_credentials",
+      "call_handling": "generic",
+      "test_connection": {
+        "url": "/profile/identity/v4.1/Users?count=1"
+      },
+      "socket_timeout": 3600000,
+      "accept": "application/json",
+      "retry": [
+        {
+          "type": "statusCode",
+          "statusCode": 429,
+          "retry": {
+            "type": "simple",
+            "maxCount": 12,
+            "waitTime": 5
+          }
+        },
+        {
+          "type": "connectionError"
+        }
+      ]
+    },
+    "authOptions": {
+      "type": "custom_post_token",
+      "authUrl": "https://{tenant_id}/oauth2/v0/token",
+      "postData": {
+          "grant_type":"password",
+          "client_id": "{client_id}",
+          "client_secret": "{client_secret}",
+          "username": "{company_uuid}",
+          "password": "{company_request_token}"
+      },
+      "postAsForm": true,
+      "tokenPath": "access_token",
+      "headerName": "Authorization",
+      "headerTemplate": "Bearer {token}"
+  }
+  },
+  "connection": {
+    "items": [
+      {
+        "name": "tenant_id",
+        "type": "textbox",
+        "label": "Tenent URL:",
+        "value": "us.api.concursolutions.com"
+      },
+      {
+        "name": "client_id",
+        "type": "textbox",
+        "label": "Client ID",
+        "value": ""
+      },
+      {
+        "name": "client_secret",
+        "type": "textbox",
+        "label": "Client Secret",
+        "password": true,
+        "value": ""
+      },
+      {
+        "name": "company_uuid",
+        "type": "textbox",
+        "label": "Company UUID",
+        "value": ""
+      },
+      {
+        "name": "company_request_token",
+        "type": "textbox",
+        "label": "Company Request Token",
+        "password": true,
+        "value": ""
+      }
+    ]
+  }
+}
