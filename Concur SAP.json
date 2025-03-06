@@ -1,22 +1,110 @@
 {
   "schema": {
     "crud_objects": {
-      "costcenter1": {
+      "identity_users": {
         "operations": {
-          "costcenter1List": {
+          "identity_usersList": {
             "method": "get",
             "call": {
               "path": "/profile/identity/v4.1/Users"
             },
             "processing_options": {
-              "output_field": null
+              "output_field": "Resources"
             }
           }
         },
-        "key": "code",
+        "key": "id",
         "resources": {
-          "code": "string*",
-          "description": "string*"
+          "active": "boolean*",
+          "addresses": [
+            {
+              "country": "string*",
+              "locality": "string*",
+              "postalCode": "string*",
+              "region": "string*",
+              "streetAddress": "string*",
+              "type": "string*"
+            }
+          ],
+          "dateOfBirth": "string*",
+          "displayName": "string*",
+          "emails": [
+            {
+              "verified": "boolean*",
+              "type": "string*",
+              "value": "string*",
+              "notifications": "boolean*"
+            }
+          ],
+          "emergencyContacts": [
+            {
+              "country": "string*",
+              "emails": "string*",
+              "locality": "string*",
+              "name": "string*",
+              "phones": "string*",
+              "postalCode": "string*",
+              "region": "string*",
+              "relationship": "string*",
+              "streetAddress": "string*"
+            }
+          ],
+          "entitlements": "string*",
+          "externalId": "string*",
+          "id": "string*",
+          "localeOverrides": {
+            "preferenceEndDayViewHour": "_:string",
+            "preferenceFirstDayOfWeek": "_:string",
+            "preferenceDateFormat": "_:string",
+            "preferenceCurrencySymbolLocation": "_:string",
+            "preferenceHourMinuteSeparator": "_:string",
+            "preferenceDistance": "_:string",
+            "preferenceDefaultCalView": "_:string",
+            "preference24Hour": "_:string",
+            "preferenceNumberFormat": "_:string",
+            "preferenceStartDayViewHour": "_:string",
+            "preferenceNegativeCurrencyFormat": "_:string",
+            "preferenceNegativeNumberFormat": "_:string"
+          },
+          "meta": {
+            "resourceType": "_:string",
+            "created": "_:string",
+            "lastModified": "_:string",
+            "version": "_:string",
+            "location": "_:string"
+          },
+          "name": {
+            "honorificSuffix": "_:string*",
+            "formatted": "_:string*",
+            "familyName": "_:string*",
+            "givenName": "_:string*",
+            "familyNamePrefix": "_:string*",
+            "honorificPrefix": "_:string*",
+            "middleName": "_:string*"
+          },
+          "nickName": "string*",
+          "phoneNumbers": [{
+            "display": "string*",
+            "notifications": "boolean*",
+            "primary": "boolean*",
+            "type": "string*",
+            "value": "string*"
+          }],
+          "preferredLanguage": "string*",
+          "timezone": "string*",
+          "title": "string*",
+          "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+            "terminationDate": "_:string*",
+            "companyId": "_:string*",
+            "department": "_:string*",
+            "organization": "_:string*",
+            "manager": "_:string*",
+            "costCenter": "_:string*",
+            "startDate": "_:string*",
+            "leavesOfAbsence": "_:string*",
+            "employeeNumber": "_:string*"
+          },
+          "userName": "string*"
         }
       }
     }
@@ -41,7 +129,7 @@
                     }]
                 }
       },
-      "authentication": "client_credentials",
+      "authentication": "custom_post_token",
       "call_handling": "generic",
       "test_connection": {
         "url": "/profile/identity/v4.1/Users?count=1"
@@ -71,7 +159,8 @@
           "client_id": "{client_id}",
           "client_secret": "{client_secret}",
           "username": "{company_uuid}",
-          "password": "{company_request_token}"
+          "password": "{company_request_token}",
+          "credtype": "authtoken"
       },
       "postAsForm": true,
       "tokenPath": "access_token",
@@ -85,7 +174,7 @@
         "name": "tenant_id",
         "type": "textbox",
         "label": "Tenent URL:",
-        "value": "us.api.concursolutions.com"
+        "value": "us2.api.concursolutions.com"
       },
       {
         "name": "client_id",
