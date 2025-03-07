@@ -94,15 +94,18 @@
           "timezone": "string*",
           "title": "string*",
           "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-            "terminationDate": "_:string*",
-            "companyId": "_:string*",
-            "department": "_:string*",
-            "organization": "_:string*",
-            "manager": "_:string*",
-            "costCenter": "_:string*",
-            "startDate": "_:string*",
-            "leavesOfAbsence": "_:string*",
-            "employeeNumber": "_:string*"
+            "terminationDate": "enterprise_user_terminationDate:string*",
+            "companyId": "enterprise_user_companyId:string*",
+            "department": "enterprise_user_department:string*",
+            "organization": "enterprise_user_organization:string*",
+            "manager": {
+              "value": "enterprise_user_manager_value:string*",
+              "employeeNumber": "enterprise_user_manager_employeeNumber:string*"
+            },
+            "costCenter": "enterprise_user_costCenter:string*",
+            "startDate": "enterprise_user_startDate:string*",
+            "leavesOfAbsence": "enterprise_user_leavesOfAbsence:string*",
+            "employeeNumber": "enterprise_user_employeeNumber:string*"
           },
           "userName": "string*"
         }
