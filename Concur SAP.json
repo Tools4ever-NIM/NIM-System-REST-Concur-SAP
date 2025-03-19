@@ -1,209 +1,215 @@
 {
   "schema": {
-    "crud_objects": {
-      "identity_users": {
-        "operations": {
-          "identity_usersList": {
-            "method": "get",
-            "call": {
-              "path": "/profile/identity/v4.1/Users"
-            },
-            "processing_options": {
-              "output_field": "Resources"
-            }
+      "crud_objects": {
+          "identity_users": {
+              "operations": {
+                  "identity_usersList": {
+                      "method": "get",
+                      "call": {
+                          "path": "/profile/identity/v4.1/Users"
+                      },
+                      "put_hash_in_child_tables": "nim_hash",
+                      "processing_options": {
+                          "output_field": "Resources"
+                      }
+                  },
+                  "staffCreate": {
+                      "method": "post",
+                      "call": {
+                          "mode": "normal",
+                          "path": "/profile/identity/v4.1/Users"
+                      },
+                      "semantics": "create",
+                      "resource_allowance_default": "optional",
+                      "resource_mandatory": [
+                          "userName"
+                      ],
+                      "resource_prohibited": [
+                          "id",
+                          "meta_resourceType",
+                          "meta_created",
+                          "meta_lastModified",
+                          "meta_version",
+                          "meta_location"
+                      ]
+                  }
+              },
+              "key": "id",
+              "resources": {
+                  "active": "boolean*",
+                  "addresses": [
+                      {
+                          "country": "string*",
+                          "locality": "string*",
+                          "postalCode": "string*",
+                          "region": "string*",
+                          "streetAddress": "string*",
+                          "type": "string*"
+                      }
+                  ],
+                  "dateOfBirth": "string*",
+                  "displayName": "string*",
+                  "emails": [
+                      {
+                          "verified": "boolean*",
+                          "type": "string*",
+                          "value": "string*",
+                          "notifications": "boolean*"
+                      }
+                  ],
+                  "emergencyContacts": [
+                      {
+                          "country": "string*",
+                          "emails": "string*",
+                          "locality": "string*",
+                          "name": "string*",
+                          "phones": "string*",
+                          "postalCode": "string*",
+                          "region": "string*",
+                          "relationship": "string*",
+                          "streetAddress": "string*"
+                      }
+                  ],
+                  "entitlements": "string*",
+                  "externalId": "string*",
+                  "id": "string*",
+                  "localeOverrides": {
+                      "preferenceEndDayViewHour": "_:string",
+                      "preferenceFirstDayOfWeek": "_:string",
+                      "preferenceDateFormat": "_:string",
+                      "preferenceCurrencySymbolLocation": "_:string",
+                      "preferenceHourMinuteSeparator": "_:string",
+                      "preferenceDistance": "_:string",
+                      "preferenceDefaultCalView": "_:string",
+                      "preference24Hour": "_:string",
+                      "preferenceNumberFormat": "_:string",
+                      "preferenceStartDayViewHour": "_:string",
+                      "preferenceNegativeCurrencyFormat": "_:string",
+                      "preferenceNegativeNumberFormat": "_:string"
+                  },
+                  "meta": {
+                      "resourceType": "_:string",
+                      "created": "_:string",
+                      "lastModified": "_:string",
+                      "version": "_:string",
+                      "location": "_:string"
+                  },
+                  "name": {
+                      "honorificSuffix": "_:string*",
+                      "formatted": "_:string*",
+                      "familyName": "_:string*",
+                      "givenName": "_:string*",
+                      "familyNamePrefix": "_:string*",
+                      "honorificPrefix": "_:string*",
+                      "middleName": "_:string*"
+                  },
+                  "nickName": "string*",
+                  "phoneNumbers": [
+                      {
+                          "display": "string*",
+                          "notifications": "boolean*",
+                          "primary": "boolean*",
+                          "type": "string*",
+                          "value": "string*"
+                      }
+                  ],
+                  "preferredLanguage": "string*",
+                  "timezone": "string*",
+                  "title": "string*",
+                  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                      "terminationDate": "enterprise_user_terminationDate:string*",
+                      "companyId": "enterprise_user_companyId:string*",
+                      "department": "enterprise_user_department:string*",
+                      "organization": "enterprise_user_organization:string*",
+                      "manager": {
+                          "value": "enterprise_user_manager_value:string*",
+                          "employeeNumber": "enterprise_user_manager_employeeNumber:string*"
+                      },
+                      "costCenter": "enterprise_user_costCenter:string*",
+                      "startDate": "enterprise_user_startDate:string*",
+                      "leavesOfAbsence": "enterprise_user_leavesOfAbsence:string*",
+                      "employeeNumber": "enterprise_user_employeeNumber:string*"
+                  },
+                  "userName": "string*"
+              }
           }
-        },
-        "key": "id",
-        "resources": {
-          "active": "boolean*",
-          "addresses": [
-            {
-              "country": "string*",
-              "locality": "string*",
-              "postalCode": "string*",
-              "region": "string*",
-              "streetAddress": "string*",
-              "type": "string*"
-            }
-          ],
-          "dateOfBirth": "string*",
-          "displayName": "string*",
-          "emails": [
-            {
-              "verified": "boolean*",
-              "type": "string*",
-              "value": "string*",
-              "notifications": "boolean*"
-            }
-          ],
-          "emergencyContacts": [
-            {
-              "country": "string*",
-              "emails": "string*",
-              "locality": "string*",
-              "name": "string*",
-              "phones": "string*",
-              "postalCode": "string*",
-              "region": "string*",
-              "relationship": "string*",
-              "streetAddress": "string*"
-            }
-          ],
-          "entitlements": "string*",
-          "externalId": "string*",
-          "id": "string*",
-          "localeOverrides": {
-            "preferenceEndDayViewHour": "_:string",
-            "preferenceFirstDayOfWeek": "_:string",
-            "preferenceDateFormat": "_:string",
-            "preferenceCurrencySymbolLocation": "_:string",
-            "preferenceHourMinuteSeparator": "_:string",
-            "preferenceDistance": "_:string",
-            "preferenceDefaultCalView": "_:string",
-            "preference24Hour": "_:string",
-            "preferenceNumberFormat": "_:string",
-            "preferenceStartDayViewHour": "_:string",
-            "preferenceNegativeCurrencyFormat": "_:string",
-            "preferenceNegativeNumberFormat": "_:string"
-          },
-          "meta": {
-            "resourceType": "_:string",
-            "created": "_:string",
-            "lastModified": "_:string",
-            "version": "_:string",
-            "location": "_:string"
-          },
-          "name": {
-            "honorificSuffix": "_:string*",
-            "formatted": "_:string*",
-            "familyName": "_:string*",
-            "givenName": "_:string*",
-            "familyNamePrefix": "_:string*",
-            "honorificPrefix": "_:string*",
-            "middleName": "_:string*"
-          },
-          "nickName": "string*",
-          "phoneNumbers": [{
-            "display": "string*",
-            "notifications": "boolean*",
-            "primary": "boolean*",
-            "type": "string*",
-            "value": "string*"
-          }],
-          "preferredLanguage": "string*",
-          "timezone": "string*",
-          "title": "string*",
-          "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-            "terminationDate": "enterprise_user_terminationDate:string*",
-            "companyId": "enterprise_user_companyId:string*",
-            "department": "enterprise_user_department:string*",
-            "organization": "enterprise_user_organization:string*",
-            "manager": {
-              "value": "enterprise_user_manager_value:string*",
-              "employeeNumber": "enterprise_user_manager_employeeNumber:string*"
-            },
-            "costCenter": "enterprise_user_costCenter:string*",
-            "startDate": "enterprise_user_startDate:string*",
-            "leavesOfAbsence": "enterprise_user_leavesOfAbsence:string*",
-            "employeeNumber": "enterprise_user_employeeNumber:string*"
-          },
-          "userName": "string*"
-        }
       }
-    }
   },
   "rest": {
     "config": {
-      "baseUrl": "https://{tenant_id}",
+      "baseUrl": "{geolocation}",
       "get": {
+        "maxPageCount": 5,
         "pagination": {
-                    "mode": "url",
-                    "replace_in_url": true,
-                    "last_page": {
-                       "type": "token",
-                       "path": "nextCursor"
-                    },
-                    "query_params": [{
-                        "name": "cursor",
-                        "value": {
-                            "type": "response_field",
-                            "value": "nextCursor"
-                        }
-                    }]
-                }
+                  "mode": "url",
+                  "replace_in_url": true,
+                  "last_page": {
+                      "type": "token",
+                      "path": "nextCursor"
+                  },
+                  "query_params": [
+                      {
+                          "name": "cursor",
+                          "value": {
+                              "type": "response_field",
+                              "value": "nextCursor"
+                          }
+                      }
+                  ]
+              }
       },
-      "authentication": "custom_post_token",
+      "authentication": "password_grant",
       "call_handling": "generic",
-      "test_connection": {
-        "url": "/profile/identity/v4.1/Users?count=1"
-      },
-      "socket_timeout": 3600000,
-      "accept": "application/json",
+      "maxCallsPerMinute": 100,
       "retry": [
         {
           "type": "statusCode",
-          "statusCode": 429,
-          "retry": {
-            "type": "simple",
-            "maxCount": 12,
-            "waitTime": 5
-          }
+          "statusCode": 503
         },
         {
           "type": "connectionError"
         }
-      ]
+      ],
+      "test_connection": {
+        "url": "/profile/identity/v4.1/Users?count=1"
+      },
+      "accept": "application/json"
     },
     "authOptions": {
-      "type": "custom_post_token",
-      "authUrl": "https://{tenant_id}/oauth2/v0/token",
-      "postData": {
-          "grant_type":"password",
-          "client_id": "{client_id}",
-          "client_secret": "{client_secret}",
-          "username": "{company_uuid}",
-          "password": "{company_request_token}",
-          "credtype": "authtoken"
+      "type": "password_grant",
+      "authUrl": "{geolocation}/oauth2/v0/token",
+      "extraTokenRequestData": {
+        "credtype": "authtoken"
       },
-      "postAsForm": true,
-      "tokenPath": "access_token",
-      "headerName": "Authorization",
-      "headerTemplate": "Bearer {token}"
-  }
+      "extraParameters": {
+        "geolocation": "geolocation"
+      }
+    }
   },
   "connection": {
     "items": [
       {
-        "name": "tenant_id",
-        "type": "textbox",
-        "label": "Tenent URL:",
-        "value": "us2.api.concursolutions.com"
-      },
-      {
-        "name": "client_id",
-        "type": "textbox",
-        "label": "Client ID",
-        "value": ""
-      },
-      {
-        "name": "client_secret",
-        "type": "textbox",
-        "label": "Client Secret",
-        "password": true,
-        "value": ""
-      },
-      {
-        "name": "company_uuid",
+        "order": 1,
+        "name": "user_name",
         "type": "textbox",
         "label": "Company UUID",
         "value": ""
       },
       {
-        "name": "company_request_token",
+        "order": 2,
+        "name": "password",
         "type": "textbox",
-        "label": "Company Request Token",
         "password": true,
+        "label": "Company Request Token",
         "value": ""
+      },
+      {
+        "order": 300,
+        "name": "geolocation",
+        "type": "textbox",
+        "label": "Geo Location:",
+        "value": "https://us.api.concursolutions.com",
+        "hidden": "!item"
       }
     ]
   }
