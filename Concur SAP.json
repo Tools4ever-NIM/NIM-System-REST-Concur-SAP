@@ -1,297 +1,297 @@
 {
-  "schema": {
-      "crud_objects": {
-          "identity_users": {
-              "operations": {
-                  "identity_usersList": {
-                      "method": "get",
-                      "call": {
-                          "path": "/profile/identity/v4.1/Users",
-                          "queryParameters": {
-                              "attributes": "active,addresses,dateOfBirth,displayName,emails,emergencyContacts,entitlements,externalId,id,localeOverrides,meta,name,nickName,phoneNumbers,preferredLanguage,timezone,title,userName,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-                          }
-                      },
-                      "put_hash_in_child_tables": "nim_hash",
-                      "processing_options": {
-                          "output_field": "Resources"
-                      }
-                  },
-                  "identity_usersCreate": {
-                      "method": "post",
-                      "call": {
-                          "mode": "normal",
-                          "path": "/profile/identity/v4.1/Users",
-                          "queryParameters": {}
-                      },
-                      "semantics": "create",
-                      "resource_allowance_default": "optional",
-                      "resource_mandatory": [
-                          "userName"
-                      ],
-                      "resource_prohibited": [
-                          "id",
-                          "meta_resourceType",
-                          "meta_created",
-                          "meta_lastModified",
-                          "meta_version",
-                          "meta_location",
-                          "name_legalName",
-                          "entitlements",
-                          "localeOverrides_preferenceEndDayViewHour",
-                          "localeOverrides_preferenceFirstDayOfWeek",
-                          "localeOverrides_preferenceDateFormat",
-                          "localeOverrides_preferenceCurrencySymbolLocation",
-                          "localeOverrides_preferenceHourMinuteSeparator",
-                          "localeOverrides_preferenceDistance",
-                          "localeOverrides_preferenceDefaultCalView",
-                          "localeOverrides_preference24Hour",
-                          "localeOverrides_preferenceNumberFormat",
-                          "localeOverrides_preferenceStartDayViewHour",
-                          "localeOverrides_preferenceNegativeCurrencyFormat",
-                          "localeOverrides_preferenceNegativeNumberFormat"
-                      ]
-                  },
-                  "identity_usersUpdate": {
-                      "method": "patch",
-                      "call": {
-                          "mode": "normal",
-                          "path": "/profile/identity/v4.1/Users/{id}",
-                          "queryParameters": {}
-                      },
-                      "semantics": "update",
-                      "resource_allowance_default": "optional",
-                      "resource_mandatory": [
-                          "id"
-                      ],
-                      "resource_prohibited": [
-                          "meta_resourceType",
-                          "meta_created",
-                          "meta_lastModified",
-                          "meta_version",
-                          "meta_location",
-                          "name_legalName",
-                          "entitlements",
-                          "localeOverrides_preferenceEndDayViewHour",
-                          "localeOverrides_preferenceFirstDayOfWeek",
-                          "localeOverrides_preferenceDateFormat",
-                          "localeOverrides_preferenceCurrencySymbolLocation",
-                          "localeOverrides_preferenceHourMinuteSeparator",
-                          "localeOverrides_preferenceDistance",
-                          "localeOverrides_preferenceDefaultCalView",
-                          "localeOverrides_preference24Hour",
-                          "localeOverrides_preferenceNumberFormat",
-                          "localeOverrides_preferenceStartDayViewHour",
-                          "localeOverrides_preferenceNegativeCurrencyFormat",
-                          "localeOverrides_preferenceNegativeNumberFormat"
-                      ]
-                  },
-                  "identity_usersDelete": {
-                      "method": "delete",
-                      "call": {
-                          "mode": "normal",
-                          "path": "/profile/identity/v4.1/Users/{id}",
-                          "queryParameters": {}
-                      },
-                      "semantics": "delete",
-                      "resource_allowance_default": "prohibited",
-                      "resource_mandatory": [
-                          "id"
-                      ]
-                  }
-              },
-              "key": "id",
-              "resources": {
-                  "active": "boolean*",
-                  "addresses": [
-                      {
-                          "country": "string*",
-                          "locality": "string*",
-                          "postalCode": "string*",
-                          "region": "string*",
-                          "streetAddress": "string*",
-                          "type": "string*"
-                      }
-                  ],
-                  "dateOfBirth": "string*",
-                  "displayName": "string*",
-                  "emails": [
-                      {
-                          "verified": "boolean*",
-                          "type": "string*",
-                          "value": "string*",
-                          "notifications": "boolean*"
-                      }
-                  ],
-                  "emergencyContacts": [
-                      {
-                          "country": "string*",
-                          "emails": "string*",
-                          "locality": "string*",
-                          "name": "string*",
-                          "phones": "string*",
-                          "postalCode": "string*",
-                          "region": "string*",
-                          "relationship": "string*",
-                          "streetAddress": "string*"
-                      }
-                  ],
-                  "entitlements": "string*",
-                  "externalId": "string*",
-                  "id": "string*",
-                  "localeOverrides": {
-                      "preferenceEndDayViewHour": "_:string",
-                      "preferenceFirstDayOfWeek": "_:string",
-                      "preferenceDateFormat": "_:string",
-                      "preferenceCurrencySymbolLocation": "_:string",
-                      "preferenceHourMinuteSeparator": "_:string",
-                      "preferenceDistance": "_:string",
-                      "preferenceDefaultCalView": "_:string",
-                      "preference24Hour": "_:string",
-                      "preferenceNumberFormat": "_:string",
-                      "preferenceStartDayViewHour": "_:string",
-                      "preferenceNegativeCurrencyFormat": "_:string",
-                      "preferenceNegativeNumberFormat": "_:string"
-                  },
-                  "meta": {
-                      "resourceType": "_:string",
-                      "created": "_:string",
-                      "lastModified": "_:string",
-                      "version": "_:string",
-                      "location": "_:string"
-                  },
-                  "name": {
-                      "honorificSuffix": "_:string*",
-                      "formatted": "_:string*",
-                      "familyName": "_:string*",
-                      "givenName": "_:string*",
-                      "familyNamePrefix": "_:string*",
-                      "honorificPrefix": "_:string*",
-                      "middleName": "_:string*"
-                  },
-                  "nickName": "string*",
-                  "phoneNumbers": [
-                      {
-                          "display": "string*",
-                          "notifications": "boolean*",
-                          "primary": "boolean*",
-                          "type": "string*",
-                          "value": "string*"
-                      }
-                  ],
-                  "preferredLanguage": "string*",
-                  "timezone": "string*",
-                  "title": "string*",
-                  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-                      "terminationDate": "enterprise_user_terminationDate:string*",
-                      "companyId": "enterprise_user_companyId:string*",
-                      "department": "enterprise_user_department:string*",
-                      "organization": "enterprise_user_organization:string*",
-                      "manager": {
-                          "value": "enterprise_user_manager_value:string*",
-                          "employeeNumber": "enterprise_user_manager_employeeNumber:string*"
-                      },
-                      "costCenter": "enterprise_user_costCenter:string*",
-                      "startDate": "enterprise_user_startDate:string*",
-                      "leavesOfAbsence": "enterprise_user_leavesOfAbsence:string*",
-                      "employeeNumber": "enterprise_user_employeeNumber:string*"
-                  },
-                  "userName": "string*"
-              }
-          }
-      }
-  },
-  "rest": {
-      "config": {
-          "baseUrl": "{geolocation}",
-          "get": {
-              "maxPageCount": 5,
-              "pagination": {
-                  "mode": "url",
-                  "replace_in_url": true,
-                  "last_page": {
-                      "type": "token",
-                      "path": "nextCursor"
-                  },
-                  "query_params": [
-                      {
-                          "name": "cursor",
-                          "value": {
-                              "type": "response_field",
-                              "value": "nextCursor"
-                          }
-                      }
-                  ]
-              }
-          },
-          "authentication": "password_grant",
-          "call_handling": "generic",
-          "maxCallsPerMinute": 100,
-          "retry": [
-              {
-                  "type": "statusCode",
-                  "statusCode": 503
-              },
-              {
-                  "type": "connectionError"
-              }
-          ],
-          "test_connection": {
-              "url": "/profile/identity/v4.1/Users?count=1"
-          },
-          "accept": "application/json"
-      },
-      "authOptions": {
-          "type": "password_grant",
-          "authUrl": "{geolocation}/oauth2/v0/token",
-          "extraTokenRequestData": {
-              "credtype": "authtoken"
-          },
-          "extraParameters": {
-              "geolocation": "geolocation"
-          }
-      }
-  },
-  "connection": {
-      "items": [
-          {
-              "order": 1,
-              "name": "user_name",
-              "type": "textbox",
-              "label": "Company UUID",
-              "value": "",
-              "required": true,
-              "tooltip": "Use the Concur SAP Company Request Token Self-Service Tool to get this information. A refresh token has a six month lifetime"
-          },
-          {
-              "order": 2,
-              "name": "password",
-              "type": "textbox",
-              "password": true,
-              "label": "Company Request Token",
-              "value": "",
-              "required": true,
-              "tooltip": "Use the Concur SAP Company Request Token Self-Service Tool to get this information. A refresh token has a six month lifetime"
-          },
-          {
-              "name": "client_id",
-              "order": 3,
-              "required": true,
-              "tooltip": "Use the Concur SAP OAuth 2.0 Application Management Tool to generate Client IDs (App IDs) and Client Secrets without contacting SAP Concur support"
-          },
-          {
-              "name": "client_secret",
-              "order": 4,
-              "required": true,
-              "tooltip": "Use the Concur SAP OAuth 2.0 Application Management Tool to generate Client IDs (App IDs) and Client Secrets without contacting SAP Concur support"
-          },
-          {
-              "order": 300,
-              "name": "geolocation",
-              "type": "textbox",
-              "label": "Geo Location:",
-              "value": "https://us.api.concursolutions.com",
-              "hidden": "!item"
-          }
-      ]
-  }
+    "schema": {
+        "crud_objects": {
+            "identity_users": {
+                "operations": {
+                    "identity_usersList": {
+                        "method": "get",
+                        "call": {
+                            "path": "/profile/identity/v4.1/Users",
+                            "queryParameters": {
+                                "attributes": "active,addresses,dateOfBirth,displayName,emails,emergencyContacts,entitlements,externalId,id,localeOverrides,meta,name,nickName,phoneNumbers,preferredLanguage,timezone,title,userName,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                            }
+                        },
+                        "put_hash_in_child_tables": "nim_hash",
+                        "processing_options": {
+                            "output_field": "Resources"
+                        }
+                    },
+                    "identity_usersCreate": {
+                        "method": "post",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/profile/identity/v4.1/Users",
+                            "queryParameters": {}
+                        },
+                        "semantics": "create",
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "userName"
+                        ],
+                        "resource_prohibited": [
+                            "id",
+                            "meta_resourceType",
+                            "meta_created",
+                            "meta_lastModified",
+                            "meta_version",
+                            "meta_location",
+                            "name_legalName",
+                            "entitlements",
+                            "localeOverrides_preferenceEndDayViewHour",
+                            "localeOverrides_preferenceFirstDayOfWeek",
+                            "localeOverrides_preferenceDateFormat",
+                            "localeOverrides_preferenceCurrencySymbolLocation",
+                            "localeOverrides_preferenceHourMinuteSeparator",
+                            "localeOverrides_preferenceDistance",
+                            "localeOverrides_preferenceDefaultCalView",
+                            "localeOverrides_preference24Hour",
+                            "localeOverrides_preferenceNumberFormat",
+                            "localeOverrides_preferenceStartDayViewHour",
+                            "localeOverrides_preferenceNegativeCurrencyFormat",
+                            "localeOverrides_preferenceNegativeNumberFormat"
+                        ]
+                    },
+                    "identity_usersUpdate": {
+                        "method": "patch",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/profile/identity/v4.1/Users/{id}",
+                            "queryParameters": {}
+                        },
+                        "semantics": "update",
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "id"
+                        ],
+                        "resource_prohibited": [
+                            "meta_resourceType",
+                            "meta_created",
+                            "meta_lastModified",
+                            "meta_version",
+                            "meta_location",
+                            "name_legalName",
+                            "entitlements",
+                            "localeOverrides_preferenceEndDayViewHour",
+                            "localeOverrides_preferenceFirstDayOfWeek",
+                            "localeOverrides_preferenceDateFormat",
+                            "localeOverrides_preferenceCurrencySymbolLocation",
+                            "localeOverrides_preferenceHourMinuteSeparator",
+                            "localeOverrides_preferenceDistance",
+                            "localeOverrides_preferenceDefaultCalView",
+                            "localeOverrides_preference24Hour",
+                            "localeOverrides_preferenceNumberFormat",
+                            "localeOverrides_preferenceStartDayViewHour",
+                            "localeOverrides_preferenceNegativeCurrencyFormat",
+                            "localeOverrides_preferenceNegativeNumberFormat"
+                        ]
+                    },
+                    "identity_usersDelete": {
+                        "method": "delete",
+                        "call": {
+                            "mode": "normal",
+                            "path": "/profile/identity/v4.1/Users/{id}",
+                            "queryParameters": {}
+                        },
+                        "semantics": "delete",
+                        "resource_allowance_default": "prohibited",
+                        "resource_mandatory": [
+                            "id"
+                        ]
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "active": "boolean*",
+                    "addresses": [
+                        {
+                            "country": "string*",
+                            "locality": "string*",
+                            "postalCode": "string*",
+                            "region": "string*",
+                            "streetAddress": "string*",
+                            "type": "string*"
+                        }
+                    ],
+                    "dateOfBirth": "string*",
+                    "displayName": "string*",
+                    "emails": [
+                        {
+                            "verified": "boolean*",
+                            "type": "string*",
+                            "value": "string*",
+                            "notifications": "boolean*"
+                        }
+                    ],
+                    "emergencyContacts": [
+                        {
+                            "country": "string*",
+                            "emails": "string*",
+                            "locality": "string*",
+                            "name": "string*",
+                            "phones": "string*",
+                            "postalCode": "string*",
+                            "region": "string*",
+                            "relationship": "string*",
+                            "streetAddress": "string*"
+                        }
+                    ],
+                    "entitlements": "string*",
+                    "externalId": "string*",
+                    "id": "string*",
+                    "localeOverrides": {
+                        "preferenceEndDayViewHour": "_:string",
+                        "preferenceFirstDayOfWeek": "_:string",
+                        "preferenceDateFormat": "_:string",
+                        "preferenceCurrencySymbolLocation": "_:string",
+                        "preferenceHourMinuteSeparator": "_:string",
+                        "preferenceDistance": "_:string",
+                        "preferenceDefaultCalView": "_:string",
+                        "preference24Hour": "_:string",
+                        "preferenceNumberFormat": "_:string",
+                        "preferenceStartDayViewHour": "_:string",
+                        "preferenceNegativeCurrencyFormat": "_:string",
+                        "preferenceNegativeNumberFormat": "_:string"
+                    },
+                    "meta": {
+                        "resourceType": "_:string",
+                        "created": "_:string",
+                        "lastModified": "_:string",
+                        "version": "_:string",
+                        "location": "_:string"
+                    },
+                    "name": {
+                        "honorificSuffix": "_:string*",
+                        "formatted": "_:string*",
+                        "familyName": "_:string*",
+                        "givenName": "_:string*",
+                        "familyNamePrefix": "_:string*",
+                        "honorificPrefix": "_:string*",
+                        "middleName": "_:string*"
+                    },
+                    "nickName": "string*",
+                    "phoneNumbers": [
+                        {
+                            "display": "string*",
+                            "notifications": "boolean*",
+                            "primary": "boolean*",
+                            "type": "string*",
+                            "value": "string*"
+                        }
+                    ],
+                    "preferredLanguage": "string*",
+                    "timezone": "string*",
+                    "title": "string*",
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                        "terminationDate": "enterprise_user_terminationDate:string*",
+                        "companyId": "enterprise_user_companyId:string*",
+                        "department": "enterprise_user_department:string*",
+                        "organization": "enterprise_user_organization:string*",
+                        "manager": {
+                            "value": "enterprise_user_manager_value:string*",
+                            "employeeNumber": "enterprise_user_manager_employeeNumber:string*"
+                        },
+                        "costCenter": "enterprise_user_costCenter:string*",
+                        "startDate": "enterprise_user_startDate:string*",
+                        "leavesOfAbsence": "enterprise_user_leavesOfAbsence:string*",
+                        "employeeNumber": "enterprise_user_employeeNumber:string*"
+                    },
+                    "userName": "string*"
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "{geolocation}",
+            "get": {
+                "maxPageCount": 5,
+                "pagination": {
+                    "mode": "url",
+                    "replace_in_url": true,
+                    "last_page": {
+                        "type": "token",
+                        "path": "nextCursor"
+                    },
+                    "query_params": [
+                        {
+                            "name": "cursor",
+                            "value": {
+                                "type": "response_field",
+                                "value": "nextCursor"
+                            }
+                        }
+                    ]
+                }
+            },
+            "authentication": "password_grant",
+            "call_handling": "generic",
+            "maxCallsPerMinute": 100,
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 503
+                },
+                {
+                    "type": "connectionError"
+                }
+            ],
+            "test_connection": {
+                "url": "/profile/identity/v4.1/Users?count=1"
+            },
+            "accept": "application/json"
+        },
+        "authOptions": {
+            "type": "password_grant",
+            "authUrl": "{geolocation}/oauth2/v0/token",
+            "extraTokenRequestData": {
+                "credtype": "authtoken"
+            },
+            "extraParameters": {
+                "geolocation": "geolocation"
+            }
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "order": 1,
+                "name": "user_name",
+                "type": "textbox",
+                "label": "Company UUID",
+                "value": "",
+                "required": true,
+                "tooltip": "Use the Concur SAP Company Request Token Self-Service Tool to get this information. A refresh token has a six month lifetime"
+            },
+            {
+                "order": 2,
+                "name": "password",
+                "type": "textbox",
+                "password": true,
+                "label": "Company Request Token",
+                "value": "",
+                "required": true,
+                "tooltip": "Use the Concur SAP Company Request Token Self-Service Tool to get this information. A refresh token has a six month lifetime"
+            },
+            {
+                "name": "client_id",
+                "order": 3,
+                "required": true,
+                "tooltip": "Use the Concur SAP OAuth 2.0 Application Management Tool to generate Client IDs (App IDs) and Client Secrets without contacting SAP Concur support"
+            },
+            {
+                "name": "client_secret",
+                "order": 4,
+                "required": true,
+                "tooltip": "Use the Concur SAP OAuth 2.0 Application Management Tool to generate Client IDs (App IDs) and Client Secrets without contacting SAP Concur support"
+            },
+            {
+                "order": 300,
+                "name": "geolocation",
+                "type": "textbox",
+                "label": "Geo Location:",
+                "value": "https://us.api.concursolutions.com",
+                "hidden": "!item"
+            }
+        ]
+    }
 }
