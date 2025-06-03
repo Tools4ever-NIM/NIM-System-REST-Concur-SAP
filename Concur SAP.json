@@ -56,9 +56,9 @@
                         "call": {
                             "mode": "normal",
                             "path": "/profile/identity/v4.1/Users/{id}",
-                            "postAsPatchArray": true,
                             "queryParameters": {}
                         },
+                        "postAsPatchArray": true,
                         "semantics": "update",
                         "resource_allowance_default": "optional",
                         "resource_mandatory": [
