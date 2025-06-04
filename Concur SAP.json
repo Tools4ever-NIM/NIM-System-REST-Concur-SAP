@@ -58,7 +58,7 @@
                             "path": "/profile/identity/v4.1/Users/{id}",
                             "queryParameters": {}
                         },
-                        "postAsPatchArray": true,
+                        "scimProtocol": true,
                         "semantics": "update",
                         "resource_allowance_default": "optional",
                         "resource_mandatory": [
