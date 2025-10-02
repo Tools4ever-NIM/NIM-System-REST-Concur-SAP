@@ -227,7 +227,7 @@
                         "location": "_:string",
                         "version": "_:string"
                     },
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+                    "User:urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
                         "reimbursementCurrency": "User_reimbursementCurrency:string*",
                         "reimbursementType": "User_reimbursementType:string*",
                         "ledgerCode": "User_ledgerCode:string*",
@@ -250,7 +250,7 @@
                             }
                         ]
                     },
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+                    "Approver:urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
                         "report": [
                         {
                             "approver": {
@@ -260,16 +260,16 @@
                         }
                         ]
                     },
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:ApproverLimit": "ApproverLimit:string*",
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": "Delegate_string*",
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+                    "ApproverLimit:urn:ietf:params:scim:schemas:extension:spend:2.0:ApproverLimit": "ApproverLimit:string*",
+                    "Delegate:urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": "Delegate_string*",
+                    "Role:urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
                         "roles": [
                             {
                                 "roleName": "string*"
                             }
                         ]
                     },
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+                    "UserPreference:urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
                         "showImagingIntro": "UserPreference_showImagingIntro:string*",
                         "expenseAuditRequired": "UserPreference_expenseAuditRequired:string*",
                         "allowCreditCardTransArrivalEmails": "UserPreference_allowCreditCardTransArrivalEmails:string*",
@@ -286,9 +286,9 @@
                         "enableOcrForEmail": "UserPreference_enableOcrForEmail:string*",
                         "enableTripBasedAssistant": "UserPreference_enableTripBasedAssistant:string*"
                     },
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:InvoicePreference": "InvoicePreference:string*",
-                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": "Payroll:string*",
-                    "urn:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+                    "InvoicePreference:ietf:params:scim:schemas:extension:spend:2.0:InvoicePreference": "InvoicePreference:string*",
+                    "Payroll:urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": "Payroll:string*",
+                    "WorkflowPreference:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
                         "emailStatusChangeOnCashAdvance": "WorkflowPreference_emailStatusChangeOnCashAdvance:string*",
                         "emailAwaitApprovalOnCashAdvance": "WorkflowPreference_emailAwaitApprovalOnCashAdvance:string*",
                         "emailStatusChangeOnReport": "WorkflowPreference_emailStatusChangeOnReport:string*",
@@ -326,7 +326,7 @@
                 "key": "id",
                 "resources": {
                     "id": "string*",
-                    "urn:ietf:params:scim:schemas:extension:travel:2.0:User": {
+                    "User:urn:ietf:params:scim:schemas:extension:travel:2.0:User": {
                         "ruleClass": {
                             "name": "enterprise_user_ruleClass_name:string*",
                             "id": "enterprise_user_ruleClass_id:string*"
