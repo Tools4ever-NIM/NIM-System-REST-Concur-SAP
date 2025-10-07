@@ -198,6 +198,165 @@
                     },
                     "userName": "string*"
                 }
+            },
+            "spend_users": {
+                "operations": {
+                    "spend_usersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "identity_users",
+                            "iterator": "id",
+                            "path": "/profile/spend/v4.1/Users/{iterator}"
+                        },
+                        "put_hash_in_child_tables": "nim_hash",
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "maxSessionCount": 10
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "schemas": ["string"],
+                    "id": "string*",
+                    "meta": {
+                        "resourceType": "_:string",
+                        "created": "_:string",
+                        "lastModified": "_:string",
+                        "location": "_:string",
+                        "version": "_:string"
+                    },
+                    "User:urn:ietf:params:scim:schemas:extension:spend:2.0:User": {
+                        "reimbursementCurrency": "User_reimbursementCurrency:string*",
+                        "reimbursementType": "User_reimbursementType:string*",
+                        "ledgerCode": "User_ledgerCode:string*",
+                        "country": "User_country:string*",
+                        "budgetCountryCode": "User_budgetCountryCode:string*",
+                        "stateProvince": "User_stateProvince:string*",
+                        "locale": "User_locale:string*",
+                        "cashAdvanceAccountCode": "User_cashAdvanceAccountCode:string*",
+                        "testEmployee": "User_testEmployee:string*",
+                        "nonEmployee": "User_nonEmployee:string*",
+                        "biManager": {
+                            "value": "User_manager_value:string*"
+                        },
+                        "customData": [
+                            {
+                                "id": "string*",
+                                "value": "string*",
+                                "syncGuid": "string*",
+                                "href": "string"
+                            }
+                        ]
+                    },
+                    "Approver:urn:ietf:params:scim:schemas:extension:spend:2.0:Approver": {
+                        "report": [
+                        {
+                            "approver": {
+                                "value": "_:string*"
+                            },
+                            "primary": "string*"
+                        }
+                        ]
+                    },
+                    "ApproverLimit:urn:ietf:params:scim:schemas:extension:spend:2.0:ApproverLimit": "ApproverLimit:string*",
+                    "Delegate:urn:ietf:params:scim:schemas:extension:spend:2.0:Delegate": "Delegate_string*",
+                    "Role:urn:ietf:params:scim:schemas:extension:spend:2.0:Role": {
+                        "roles": [
+                            {
+                                "roleName": "string*"
+                            }
+                        ]
+                    },
+                    "UserPreference:urn:ietf:params:scim:schemas:extension:spend:2.0:UserPreference": {
+                        "showImagingIntro": "UserPreference_showImagingIntro:string*",
+                        "expenseAuditRequired": "UserPreference_expenseAuditRequired:string*",
+                        "allowCreditCardTransArrivalEmails": "UserPreference_allowCreditCardTransArrivalEmails:string*",
+                        "allowReceiptImageAvailEmails": "UserPreference_allowReceiptImageAvailEmails:string*",
+                        "promptForCardTransactionsOnReport": "UserPreference_promptForCardTransactionsOnReport:string*",
+                        "autoAddTripCardTransOnReport": "UserPreference_autoAddTripCardTransOnReport:string*",
+                        "promptForReportPrintFormat": "UserPreference_promptForReportPrintFormat:string*",
+                        "defaultReportPrintFormat": "UserPreference_defaultReportPrintFormat:string*",
+                        "showTotalOnReport": "UserPreference_showTotalOnReport:string*",
+                        "showExpenseOnReport": "UserPreference_showExpenseOnReport:string*",
+                        "showInstructHelpPanel": "UserPreference_showInstructHelpPanel:string*",
+                        "useQuickItinAsDefault": "UserPreference_useQuickItinAsDefault:string*",
+                        "enableOcrForUi": "UserPreference_enableOcrForUi:string*",
+                        "enableOcrForEmail": "UserPreference_enableOcrForEmail:string*",
+                        "enableTripBasedAssistant": "UserPreference_enableTripBasedAssistant:string*"
+                    },
+                    "InvoicePreference:ietf:params:scim:schemas:extension:spend:2.0:InvoicePreference": "InvoicePreference:string*",
+                    "Payroll:urn:ietf:params:scim:schemas:extension:enterprise:2.0:Payroll": "Payroll:string*",
+                    "WorkflowPreference:ietf:params:scim:schemas:extension:spend:2.0:WorkflowPreference": {
+                        "emailStatusChangeOnCashAdvance": "WorkflowPreference_emailStatusChangeOnCashAdvance:string*",
+                        "emailAwaitApprovalOnCashAdvance": "WorkflowPreference_emailAwaitApprovalOnCashAdvance:string*",
+                        "emailStatusChangeOnReport": "WorkflowPreference_emailStatusChangeOnReport:string*",
+                        "emailAwaitApprovalOnReport": "WorkflowPreference_emailAwaitApprovalOnReport:string*",
+                        "promptForApproverOnReportSubmit": "WorkflowPreference_promptForApproverOnReportSubmit:string*",
+                        "emailStatusChangeOnTravelRequest": "WorkflowPreference_emailStatusChangeOnTravelRequest:string*",
+                        "emailAwaitApprovalOnTravelRequest": "WorkflowPreference_emailAwaitApprovalOnTravelRequest:string*",
+                        "promptForApproverOnTravelRequestSubmit": "WorkflowPreference_promptForApproverOnTravelRequestSubmit:string*",
+                        "emailStatusChangeOnPayment": "WorkflowPreference_emailStatusChangeOnPayment:string*",
+                        "emailAwaitApprovalOnPayment": "WorkflowPreference_emailAwaitApprovalOnPayment:string*",
+                        "promptForApproverOnPaymentSubmit": "WorkflowPreference_promptForApproverOnPaymentSUbmit:string*",
+                        "emailOnPurchaseRequestStatusChange": "WorkflowPreference_emailOnPurchaseRequestStatusChange:string*",
+                        "emailOnPurchaseRequestAwaitApproval": "WorkflowPreference_emailOnPurchaseRequestAwaitApproval:string*",
+                        "promptForPurchaseRequestApproverOnSubmit": "WorkflowPreference_promptForPurchaseRequestApproverOnSubmit:string*"
+                    }
+                }
+            },
+            "travel_users": {
+                "operations": {
+                    "travel_usersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "identity_users",
+                            "iterator": "id",
+                            "path": "/profile/travel/v4/Users/{iterator}"
+                        },
+                        "put_hash_in_child_tables": "nim_hash",
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "maxSessionCount": 10
+                    }
+                },
+                "key": "id",
+                "resources": {
+                    "id": "string*",
+                    "User:urn:ietf:params:scim:schemas:extension:travel:2.0:User": {
+                        "ruleClass": {
+                            "name": "enterprise_user_ruleClass_name:string*",
+                            "id": "enterprise_user_ruleClass_id:string*"
+                        },
+                        "travelCrsName": "enterprise_user_travelCrsName:string*",
+                        "name": {
+                            "namePrefix": "enterprise_user_name_namePrefix:string*",
+                            "givenName": "enterprise_user_name_givenName:string*",
+                            "hasNoMiddleName": "enterprise_user_name_hasNoMiddleName:string*",
+                            "middleName": "enterprise_user_name_middleName:string*",
+                            "familyName": "enterprise_user_name_familyName:string*",
+                            "honorificSuffix": "enterprise_user_name_honorificSuffix:string*"
+                        },
+                        "travelNameRemark": "enterprise_user_travelNameRemark:string*",
+                        "gender": "enterprise_user_gender:string*",
+                        "orgUnit": "enterprise_user_orgUnit:string*",
+                        "customFields": [
+                            {
+                                "name": "enterprise_user_customFields_name:string*",
+                                "value": "enterprise_user_customFields_value:string*"
+                            }
+                        ],
+                        "manager": {
+                            "value": "enterprise_user_manager_value:string*",
+                            "employeeNumber": "enterprise_user_manager_employeeNumber:string*"
+                        },
+                        "groups": "enterprise_user_groups:string*",
+                        "eReceiptOptIn": "enterprise_user_eReceiptOptIn:string*"
+                    }
+                }
             }
         }
     },
@@ -226,7 +385,7 @@
             },
             "authentication": "password_grant",
             "call_handling": "generic",
-            "maxCallsPerMinute": 100,
+
             "retry": [
                 {
                     "type": "statusCode",
@@ -275,12 +434,14 @@
             },
             {
                 "name": "client_id",
+                "type": "textbox",
                 "order": 3,
                 "required": true,
                 "tooltip": "Use the Concur SAP OAuth 2.0 Application Management Tool to generate Client IDs (App IDs) and Client Secrets without contacting SAP Concur support"
             },
             {
                 "name": "client_secret",
+                "type": "textbox",
                 "order": 4,
                 "required": true,
                 "tooltip": "Use the Concur SAP OAuth 2.0 Application Management Tool to generate Client IDs (App IDs) and Client Secrets without contacting SAP Concur support"
