@@ -182,7 +182,7 @@
                     "preferredLanguage": "string*",
                     "timezone": "string*",
                     "title": "string*",
-                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                    "User:urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
                         "terminationDate": "enterprise_user_terminationDate:string*",
                         "companyId": "enterprise_user_companyId:string*",
                         "department": "enterprise_user_department:string*",
