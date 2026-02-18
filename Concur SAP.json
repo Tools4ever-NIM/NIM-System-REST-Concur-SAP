@@ -48,10 +48,6 @@
                                 "terminationDate": "{User.terminationDate}",
                                 "department": "{User.department}",
                                 "organization": "{User.organization}",
-                                "manager": {
-                                    "value": "{User.manager.value}",
-                                    "employeeNumber": "{User.manager.employeeNumber}"
-                                },
                                 "costCenter": "{User.costCenter}",
                                 "startDate": "{User.startDate}",
                                 "leavesOfAbsence": "{User.leavesOfAbsence}",
@@ -62,7 +58,10 @@
                         "semantics": "create",
                         "resource_allowance_default": "optional",
                         "resource_mandatory": [
-                            "userName"
+                            "userName",
+                            "enterprise_user_companyId",
+                            "active",
+                            "enterprise_user_startDate"
                         ],
                         "resource_prohibited": [
                             "id",
@@ -103,7 +102,10 @@
                             "emails_type",
                             "emails_value",
                             "emails_notifications",
-                            "emergencyContacts"
+                            "emergencyContacts",
+                            "manager",
+                            "enterprise_user_manager_employeeNumber",
+                            "enterprise_user_manager_value"
                         ]
                     },
                     "identity_usersUpdate": {
