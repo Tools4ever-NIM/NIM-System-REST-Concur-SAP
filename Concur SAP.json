@@ -23,6 +23,42 @@
                             "path": "/profile/identity/v4.1/Users",
                             "queryParameters": {}
                         },
+                        "body": {
+                            "_nim_merge_attributes_": false,
+                            "userName": "{userName}",
+                            "active": "{active}",
+                            "dateOfBirth": "{dateOfBirth}",
+                            "displayName": "{displayName}",
+                            "entitlements": "{entitlements}",
+                            "externalId": "{externalId}",
+                            "name": {
+                                "honorificSuffix": "{name.honorificSuffix}",
+                                "familyName": "{name.familyName}",
+                                "givenName": "{name.givenName}",
+                                "familyNamePrefix": "{name.familyNamePrefix}",
+                                "honorificPrefix": "{name.honorificPrefix}",
+                                "middleName": "{name.middleName}"
+                            },
+                            "nickName": "{nickName}",
+                            "preferredLanguage": "{preferredLanguage}",
+                            "timezone": "{timezone}",
+                            "title": "{title}",
+                            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                                "companyId": "{User.companyId}",
+                                "terminationDate": "{User.terminationDate}",
+                                "department": "{User.department}",
+                                "organization": "{User.organization}",
+                                "manager": {
+                                    "value": "{User.manager.value}",
+                                    "employeeNumber": "{User.manager.employeeNumber}"
+                                },
+                                "costCenter": "{User.costCenter}",
+                                "startDate": "{User.startDate}",
+                                "leavesOfAbsence": "{User.leavesOfAbsence}",
+                                "employeeNumber": "{User.employeeNumber}"
+                            }
+                        },
+                        "removeBlankFields": true,
                         "semantics": "create",
                         "resource_allowance_default": "optional",
                         "resource_mandatory": [
@@ -48,7 +84,26 @@
                             "localeOverrides_preferenceNumberFormat",
                             "localeOverrides_preferenceStartDayViewHour",
                             "localeOverrides_preferenceNegativeCurrencyFormat",
-                            "localeOverrides_preferenceNegativeNumberFormat"
+                            "localeOverrides_preferenceNegativeNumberFormat",
+                            "addresses",
+                            "addresses_country",
+                            "addresses_locality",
+                            "addresses_postalCode",
+                            "addresses_region",
+                            "addresses_streetAddress",
+                            "addresses_type",
+                            "phoneNumbers",
+                            "phoneNumbers_display",
+                            "phoneNumbers_notifications",
+                            "phoneNumbers_primary",
+                            "phoneNumbers_type",
+                            "phoneNumbers_value",
+                            "emails",
+                            "emails_verified",
+                            "emails_type",
+                            "emails_value",
+                            "emails_notifications",
+                            "emergencyContacts"
                         ]
                     },
                     "identity_usersUpdate": {
